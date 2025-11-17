@@ -10,7 +10,8 @@ def main():
     print("Quantum Random Number Generator")
     print("Collecting bits from Arduino...")
     print("Press Ctrl+C to stop\n")
-    
+
+    clean_bits = []
     while True:
         # Collect raw bits
         raw_bits = []
@@ -23,7 +24,7 @@ def main():
         print(f"Collected {len(raw_bits)} raw bits")
         
         # Von Neumann debiasing
-        clean_bits = []
+        
         for i in range(0, len(raw_bits)-1, 2):
             a, b = raw_bits[i], raw_bits[i+1]
             if a == 1 and b == 0: 
@@ -82,4 +83,5 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\nStopped by user")
     except Exception as e:
+
         print(f"Error: {e}")
