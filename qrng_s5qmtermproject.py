@@ -4,7 +4,7 @@ import math
 
 def main():
     # Connect to Arduino
-    ser = serial.Serial('COM3', 9600, timeout=1)
+    ser = serial.Serial('COM5', 9600, timeout=1)
     time.sleep(2)
     
     print("Quantum Random Number Generator")
@@ -85,3 +85,4 @@ if __name__ == "__main__":
     except Exception as e:
 
         print(f"Error: {e}")
+
