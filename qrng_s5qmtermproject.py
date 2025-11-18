@@ -56,8 +56,8 @@ def main():
         total = len(whitened)
         proportion = ones / total
         
-        # Frequency test (most important randomness test)
-        S = abs(ones - total/2) / math.sqrt(total/4)
+        # Frequency test 
+        S = abs(ones - total/2) / math.sqrt(total/4)  #deviation from expcted/standard deviation
         
         print(f"\n=== QUANTUM RANDOM NUMBER ===")
         print(f"Binary (first 32 bits): {binary_str[:32]}...")
@@ -66,7 +66,7 @@ def main():
         print(f"Test Statistic: {S:.3f}")
         
         # verification (p < 0.01)
-        if S <= 2.576:  # 99% confidence level
+        if S <= 2.576:  #z-score for 99% confidence in randomness
             print("Randomness has been verified.")
             print("   (Passes NIST Frequency Test, p < 0.01)")
         else:
@@ -82,7 +82,8 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print("\nStopped by user")
-    except Exception as e:
+    except Exception as e:    #error handling
 
         print(f"Error: {e}")
+
 
